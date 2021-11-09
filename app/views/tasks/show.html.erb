@@ -1,17 +1,21 @@
-<h1><%= @task.title %></h1>
+<div class="task-container">
+  <h1><%= @task.title %></h1>
+  <br>
+  <p>Details: <%= @task.details %></p>
+  <br>
+  <p>Completed:
+    <% if @task.completed %>
+      <i class="fa fa-check-square-o"></i>
+    <% else %>
+      <i class="fa fa-square-o"></i>
+    <% end %>
+  </p>
+</div>
 
-<p>Details: <%= @task.details %></p>
+<div class="links">
+  <p><%= link_to "📄 Edit task", edit_task_path(@task) %></p>
 
-<p>Completed:
-  <% if @task.completed %>
-    <i class="fa fa-check-square-o"></i>
-  <% else %>
-    <i class="fa fa-square-o"></i>
-  <% end %>
-</p>
+  <p><%= link_to "🗑 Delete task", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %></p>
 
-<%= link_to "📄 Edit task", edit_task_path(@task) %>
-
-<%= link_to "🗑 Delete task", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>
-
-<%= link_to "Back to tasks overview", tasks_path %>
+  <p><%= link_to "Back to tasks overview", tasks_path %></p>
+</div>
