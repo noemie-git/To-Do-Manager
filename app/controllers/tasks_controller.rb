@@ -20,8 +20,8 @@ class TasksController < ApplicationController
 
   private
 
-  def restaurant_params
+  def task_params
     # STRONG PARAMS for security
-    params.require(:restaurant).permit(:name, :address, :rating)
+    params.require(:task).permit(:title, :details, :completed)
   end
 end
