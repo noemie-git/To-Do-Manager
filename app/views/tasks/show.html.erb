@@ -2,7 +2,8 @@
 
 <p>Details: <%= @task.details %></p>
 
-<p>Completed: <%= @task.completed %></p>
+<p>Completed: <%= @task.completed ? <i class="fa fa-check-square-o"></i> : <i class="fa fa-square-o"></i> %>
+</p>
 
 <%= link_to "📄 Edit task", edit_task_path(@task) %>
 
