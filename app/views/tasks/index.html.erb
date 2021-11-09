@@ -1,9 +1,7 @@
-<h2>Tasks index</h2>
---
-
-
+<h1>My tasks</h1>
+<br>
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.title %></li>
+    <li><%= link_to task.title, task_path(task) %></li>
   <% end %>
 </ul>
