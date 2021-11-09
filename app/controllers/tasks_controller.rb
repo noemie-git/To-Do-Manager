@@ -1,12 +1,27 @@
 class TasksController < ApplicationController
   def index
-    # get all the restaurants from the db
     @tasks = Task.all
   end
 
   def show
-    # we need to get the id of the restaurant
-    # go to the db and get the restaurant instance with that id
     @task = Task.find(params[:id])
+  end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(task_params)
+    @task.save
+    # go to the show page
+    redirect_to task_path(@task)
+  end
+
+  private
+
+  def restaurant_params
+    # STRONG PARAMS for security
+    params.require(:restaurant).permit(:name, :address, :rating)
   end
 end
